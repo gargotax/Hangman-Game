@@ -68,10 +68,7 @@ namespace JeuxPendu
                     Console.WriteLine($"bravo, hai trovato la lettera:{letter}");
                     Guesses.Add(letter);
                 }
-                if (Guesses == Guesses)
-                {
-                    Console.WriteLine($"lettera {letter} già trovata!");
-                }
+
                 else
                 {
                     Console.WriteLine("non è la lettera giusta, riprova");
@@ -82,10 +79,7 @@ namespace JeuxPendu
                     Console.WriteLine($"errori ({Misses.Count}) : {string.Join(", ", Misses)}");
 
                 }
-                if (Guesses == Guesses)
-                {
-                    Console.WriteLine($"lettera {letter} già trovata!");
-                }
+
                 CurrentWordGuessed = PrintWordToGuess();
 
                 if (CurrentWordGuessed.IndexOf('_') == -1)
