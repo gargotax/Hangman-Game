@@ -65,18 +65,26 @@ namespace JeuxPendu
 
                 if (letterIndex != -1)
                 {
-                    Console.WriteLine($"bravo, hai trovato la lettera:{letter}");
-                    Guesses.Add(letter);
+                    if (!Guesses.Contains(letter))
+                    {
+                        Console.WriteLine($"yes, you found:{letter}");
+                        Guesses.Add(letter);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Already found");
+                    }
+
                 }
 
                 else
                 {
-                    Console.WriteLine("non è la lettera giusta, riprova");
+                    Console.WriteLine("it isn't the right letter, try again!");
                     Misses.Add(letter);
                 }
                 if (Misses.Count > 0)
                 {
-                    Console.WriteLine($"errori ({Misses.Count}) : {string.Join(", ", Misses)}");
+                    Console.WriteLine($"mistakes ({Misses.Count}) : {string.Join(", ", Misses)}");
 
                 }
 
@@ -85,14 +93,14 @@ namespace JeuxPendu
                 if (CurrentWordGuessed.IndexOf('_') == -1)
                 {
                     isWin = true;
-                    Console.WriteLine("bravo hai vinto");
-                    // Console.ReadKey();
+                    Console.WriteLine("congratulations, you won!");
+
                 }
 
                 if (Misses.Count >= maxErrors)
                 {
-                    Console.WriteLine("peccato hai perso");
-                    // Console.ReadKey();
+                    Console.WriteLine("sorry, you lost");
+
                     break;
                 }
 
